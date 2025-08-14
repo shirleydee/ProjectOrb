@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Add to your global CSS file (app/globals.css) or create a separate CSS module */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Additional styles for the explanation panel */
+.prose-invert {
+  color: #e5e7eb;
+}
+
+.prose-invert h1,
+.prose-invert h2,
+.prose-invert h3,
+.prose-invert h4,
+.prose-invert h5,
+.prose-invert h6 {
+  color: #f9fafb;
+}
+
+.prose-invert strong {
+  color: #f9fafb;
+}
+
+.prose-invert code {
+  background-color: #374151;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  color: #e5e7eb;
+}
+
+.prose-invert pre {
+  background-color: #1f2937;
+  color: #e5e7eb;
+}
+
+/* Line clamp utilities for text truncation */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 4px #00ff99, 0 0 8px #00ff99, 0 0 12px #00ff99;
+  }
+  50% {
+    text-shadow: 0 0 8px #00ff99, 0 0 16px #00ff99, 0 0 24px #00ff99;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 1.5s infinite;
+}
