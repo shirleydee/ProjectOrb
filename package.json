@@ -1,0 +1,59 @@
+{
+  "name": "orb",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "dev:electron": "concurrently \"npm run start\" \"wait-on http://localhost:3000 && npm run electron\"",
+    "build": "next build",
+    "start": "next start",
+    "electron": "electron .",
+    "lint": "next lint",
+    "package": "electron-builder"
+  },
+  "dependencies": {
+    "isomorphic-dompurify": "^2.26.0",
+    "lucide-react": "^0.539.0",
+    "next": "15.4.6",
+    "puppeteer": "^24.16.1",
+    "puppeteer-core": "^24.16.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-icons": "^5.5.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "concurrently": "^9.2.0",
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.6",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "wait-on": "^8.0.4"
+  },
+  "build": {
+    "appId": "com.orb.app",
+    "productName": "Orb Search",
+    "files": [
+      "main.js",
+      "preload.js",
+      "assets/**/*",
+      ".next/**/*"
+    ],
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
